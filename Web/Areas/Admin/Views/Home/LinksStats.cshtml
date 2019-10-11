@@ -1,0 +1,39 @@
+﻿@model IEnumerable<Application.Links.Dto.LinkOutput>
+
+@{
+    Layout = "_Layout";
+}
+
+
+<h1>Links Stats</h1>
+
+
+
+<table class="table table-striped table-hover">
+    <thead>
+        <tr>
+            <th>@Html.LabelFor(model => model.FirstOrDefault().LongUrl)</th>
+            <th>@Html.LabelFor(model => model.FirstOrDefault().ShortUrl)</th>
+            <th>@Html.LabelFor(model => model.FirstOrDefault().CreateDate)</th>
+            <th>@Html.LabelFor(model => model.FirstOrDefault().SubmitCount)</th>
+            <th>@Html.LabelFor(model => model.FirstOrDefault().RequestCount)</th>
+            </tr>
+    </thead>
+    <tbody>
+        @foreach (var link in Model)
+        {
+            <tr>
+                <td class="font-s12">@link.LongUrl</td>
+                <td class="font-s12">@link.ShortUrl</td>
+                <td class="font-s12">@link.CreateDate</td>
+                <td class="font-s12">@link.SubmitCount</td>
+                <td class="font-s12">@link.RequestCount</td>               
+            </tr>
+        }
+
+
+
+
+    </tbody>
+</table>
+

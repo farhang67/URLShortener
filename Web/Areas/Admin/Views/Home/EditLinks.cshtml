@@ -1,0 +1,36 @@
+﻿@model IEnumerable<Application.Links.Dto.LinkOutput>
+
+@{
+    Layout = "_Layout";
+}
+
+
+<h1>Modify Entries</h1>
+
+
+
+<table class="table table-striped table-hover">
+    <thead>
+        <tr>
+            <th>@Html.LabelFor(model => model.FirstOrDefault().LongUrl)</th>
+            <th>@Html.LabelFor(model => model.FirstOrDefault().ShortUrl)</th>
+            <th><label>عملیات</label></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var link in Model)
+        {
+            <tr>
+                <td class="font-s12">@link.LongUrl</td>
+                <td class="font-s12">@link.ShortUrl</td>
+                <td>
+                    @using (Html.BeginForm("DeleteLink", "Home", new { id = link.Id }, method: FormMethod.Post))
+                    {
+                        <input type="submit" value="Delete" onclick="return confirm('delete link permanently?');" />
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

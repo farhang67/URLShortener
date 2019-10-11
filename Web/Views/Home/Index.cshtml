@@ -1,0 +1,26 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+     
+    <div id="link-container" class="center">
+        <h2>Enter link below</h2>
+        <input type="text" id="link" class="url-input" />
+        <a href="#" onclick="ShortenLink()">GO</a>
+    </div>
+
+
+<script>
+    function ShortenLink() {
+        $.ajax({
+            url: "@Url.Action("ShortenLink", "Home")",
+            type: "POST",
+            data: { url: $("#link").val() },
+            success: function (result) {
+                console.log(result);
+                $("#link-container").html(result);
+            }
+        })
+    };
+</script>
