@@ -2,6 +2,8 @@
 
 run cmd in Infrastructure folder:
 
-dotnet ef --startup-project ../web migrations add InitialDatabase
+for adding migration:
+"dotnet ef --startup-project ../web migrations add InitialDatabase"
 
-dotnet ef --startup-project ../web database update
+to update database:
+"dotnet ef --startup-project ../web database update"
